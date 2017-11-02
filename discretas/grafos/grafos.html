@@ -1,0 +1,299 @@
+<html>
+<head>
+    <script type="text/javascript" src="vis.min.js"></script>
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script src="jquery-1.12.4.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script>/*
+  $( function() {
+    $( "#panel" ).draggable();
+  } );*/
+  </script>
+    <link href="vis.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 600px;
+            height: 400px;
+            border: 1px solid lightgray;
+            background-color: #c5e6ea;
+        }
+        #panel {
+            width: 650px;
+            height: 450px;
+            border: 1px solid lightgray;
+            background-color: #b7baf1;
+            padding-top: 25px;
+            padding-left: 25px;
+            /*position: fixed;*/
+        }
+
+        #numvar{
+            border-color: #8f9ce0;
+            background-color: #c5e6ea;
+            width: 150px;
+            height: 40px;
+        }
+        input.intro{
+            border-color: #8f9ce0;
+            background-color: #c5e6ea;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            margin-right: 5px; 
+        }
+        #matriz{
+            background-color: #b7baf1;
+            display: table;
+        }
+        body{
+            background-color: #b5e8e5;
+        }
+        h1{
+            color: #2d1684;
+            font-family: sans-serif;
+            display: table;
+            background-color: #e0d1e0;
+        }
+    </style>
+</head>
+<body>
+<div id="settings">
+    <center>
+        <div><h1>inserte numero de nodos:</h1><input id="numvar"type="number" min="0" max="10" placeholder="ej. 1, 2..10" ></div>
+        <div id="ciclo"><h1></h1></div>
+        <div id="conexo"><h1></h1></div>
+    </center>
+</div>
+<center><div id="matriz">
+</div></center>
+<center><div id="panel">
+<div id="mynetwork"></div></div>
+</center>
+<script type="text/javascript">
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    
+    var options = {};
+    var matriz = [];
+    var valinst = 0;
+    // initialize your network!
+    var nodos = []
+    var uniones = []
+    function changebut(x, y){
+
+        uniones = [];
+        var concat = x.toString()+y.toString();
+        var catcon = concat.split("").reverse().join("");
+        if (document.getElementById(concat).value == "0") {
+            $("input#"+concat+"").val("1");
+            $("input#"+catcon+"").val("1");
+            document.getElementById(concat).style.backgroundColor = "#d81432";
+            document.getElementById(catcon).style.backgroundColor = "#d81432";
+        }
+        else{
+            $("input#"+concat+"").val("0");
+            $("input#"+catcon+"").val("0");
+            document.getElementById(concat).style.backgroundColor = "#c5e6ea";
+            document.getElementById(catcon).style.backgroundColor = "#c5e6ea";
+        }
+        var arre = [];
+        for (var i = 0; i < valinst; i++) {
+            for (var j = 0; j < valinst; j++) {
+                if(document.getElementById(i+""+j).value == 1){
+                    arre.push(i+""+j);
+                    //uniones.push({from: i, to: j});
+                }
+                
+            }
+        }
+        var bandera = true;
+        while(bandera == true){
+            bandera = false;
+            for (var i = 0; i < arre.length; i++) {
+                for (var j = 0; j < arre.length; j++) {
+                    if(arre[i].split("").reverse().join("") == arre[j]) {
+                        arre.splice(j, 1);
+                        bandera = true;
+                    }
+                    if (bandera == true) {
+                        break;
+                    }
+                }
+                if(bandera == true){
+                    break;
+                }
+            }
+        }
+        for (var i = 0; i < arre.length; i++) {
+            uniones.push({'from': arre[i].charAt(0), 'to': arre[i].charAt(1)});
+        };
+        var edges = new vis.DataSet(uniones);
+        var nodes = new vis.DataSet(nodos);
+        var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var network = new vis.Network(container, data, options);
+    scicles();
+    }
+    function scicles(){
+        var unionp = [uniones[0]['from'], uniones[0]['to']];
+        var unionres = []; 
+        for (var i = 0; i < uniones.length; i++) {
+            unionres.push([uniones[i]['from'], uniones[i]['to']]);
+        }
+        var bandera = true;
+        nodoini = unionp[0];
+        nodofin = unionp[1];
+        cuenta = 0;
+        unionvar = [[nodoini,nodofin]];
+        exp = [];
+        exp2 = [];
+        expant = [];
+        expact = [];
+        while (bandera == true){
+            expact = unionvar;
+            val = 0;
+            uniontemp = [];
+            unionexp = unionres;
+            resta = 0;
+            for (var i = 0; i < unionvar.length; i++) {
+                exp.push(unionvar[i]);
+            }
+            exp2 = []
+            for (var i = 0; i < exp.length; i++) {
+                exp2.push(exp[i]);
+                exp2[i].reverse();
+            }
+
+            for (var i = 0; i < unionvar.length; i++) {
+                nodtemp2 = unionvar[i];
+                for (var j = 0; j < unionres.length; j++) {
+                    bandera2 = true;
+                    bandera3 = true;
+                    if(unionres[j] == nodtemp2){
+                            bandera3 = false;
+                        }
+                    nodtemp3 = nodtemp2;
+                    nodtemp3.reverse();
+                    if(unionres[j] == nodtemp3){
+                            bandera3 = false;
+                        }
+                    if (bandera3 == true) {
+                        if(nodtemp2[0]==unionres[j][0]){
+                            for (var z = 0; z < exp.length; z++) {
+                                if(unionres[j] == exp[z]){
+                                    bandera2 = false;
+                                }
+                            }
+                            for (var z = 0; z < exp2.length; z++) {
+                                if(unionres[j] == exp2[z]){
+                                    bandera2 = false;
+                                }
+                            }
+                            nodtemp = []
+                            nodtemp = unionres[j]
+                            nodtemp.reverse();
+                            if(bandera2 == false){
+                                cuenta += 1;
+                            }
+                            else{
+                                uniontemp.push(nodtemp)
+                            }
+                        }
+                        else if(nodtemp2[0]==unionres[j][1]){
+                            for (var z = 0; z < exp.length; z++) {
+                                if(unionres[j] == exp[z]){
+                                    bandera2 = false;
+                                }
+                            }
+                            for (var z = 0; z < exp2.length; z++) {
+                                if(unionres[j] == exp2[z]){
+                                    bandera2 = false;
+                                }
+                            }
+                            nodtemp = []
+                            nodtemp = unionres[j]
+                            if(bandera2 == false){
+                                cuenta += 1;
+                            }
+                            else{
+                                uniontemp.push(nodtemp)
+                            }
+                        }
+                    }
+                                
+                }
+            }
+
+            expant = unionvar;
+            if (uniontemp.length > 0) {
+
+                unionvar = uniontemp;
+            }
+            else{
+                bandera = false;
+            }
+        }   
+        $( "div#ciclo" ).replaceWith( "<div id='ciclo'><h2>"+cuenta+"</h2></div>");
+        if(exp.length >= nodos.length){
+            $( "div#conexo" ).replaceWith( "<div id='conexo'><h2>el grafo es conexo</h2></div>");
+        }
+        else{
+            $( "div#conexo" ).replaceWith( "<div id='conexo'><h2>el grafo es disconexo</h2></div>");
+        }
+    }
+    var varias = document.getElementById('numvar');
+    function setvar() {
+        $( "div#matriz" ).replaceWith( "<div id='matriz'></div>" );
+        var edges = new vis.DataSet([]);
+        valor = varias.value;
+        valinst = valor
+        valor = valor.toString();
+        matriz = [];
+        datas = [];
+        $("div#matriz").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+        for (var i = 0; i < valor; i++) {
+            $("div#matriz").append("g "+i+"&nbsp;&nbsp;&nbsp;&nbsp;");
+        };
+        $("div#matriz").append("<br>");
+        for (var i = 0; i < valor; i++) {
+            matriz.push([]);
+            $("div#matriz").append("g "+i);
+            for (var j = 0; j < valor; j++) {
+                matriz[i].push(j);
+                $("div#matriz").append("<input type='button' class='intro' onclick='changebut("+i+","+j+")' id='"+i+""+j+"' value='0'>");
+
+            }
+            $("div#matriz").append("<br>");
+            names = "nodo "+i.toString();
+            datas.push({id: i, label: names });
+        }
+        if (i = j) {
+                    $("input#00").prop('disabled', true);
+                }
+        for (var i = 0; i < valor; i++) {
+            for (var j = 0; j < valor; j++) {
+                if (i = j) {
+                    $("input#"+i+""+j+"").prop('disabled', true);
+                }
+            }
+        }
+        nodos = datas;
+        var nodes = new vis.DataSet(datas);
+        var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var network = new vis.Network(container, data, options);
+    }
+varias.onchange = setvar;  
+varias.onblur = setvar;
+</script>
+</body>
+</html>

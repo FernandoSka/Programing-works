@@ -1,0 +1,17 @@
+//npm install react
+npm install react react-dom create-react-app
+//npm show packages
+npm list -g --depth=0
+//iniciar react
+create-react-app -g nombre
+
+//pasar a la carpeta
+cd nombre
+//ejectuar servidor
+npm start
+
+
+//add modules
+//*index.js
+import (application-name) from '.(aplication-name).js';
+export default Counter

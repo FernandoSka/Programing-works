@@ -1,0 +1,263 @@
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+#include<iostream> 
+using namespace std; 
+
+
+int main()
+{
+	
+		int x, y, contador,i,j,k;
+		
+       char U[20], A[20], B[20], C[20], D[20], R1[20], R2[20], R3[20];
+       U[0]='a';
+       U[1]='b';
+       U[2]='c';
+       U[3]='d';
+       U[4]='e';
+       U[5]='f';
+       U[6]='g';
+       U[7]='h';
+       U[8]='i';
+       U[9]='j';
+       U[10]='k';
+       U[11]='l';
+       U[12]='m';
+       U[13]='n';
+       U[14]='o';
+       U[15]='p';
+       U[16]='q';
+       U[17]='r';
+       U[18]='s';
+       U[19]='t';
+       char desicion;
+       char cosa_1;
+       
+		contador=0;
+		
+			do
+		{
+			A[contador]=' ';
+			B[contador]=' ';
+			C[contador]=' ';
+			D[contador]=' ';
+			
+			contador++;
+		}
+		
+		
+		while(contador<20);
+		
+
+	   printf("Conjunto universal:\n");
+       printf("{%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}"
+	   ,U[0],U[1],U[2],U[3],U[4],U[5],U[6],U[7],U[8],U[9],U[10],U[11],U[12],
+	   U[13],U[14],U[15],U[16],U[17],U[18],U[19]);
+	   
+
+		printf("\nDesea introducir  elementos al subconjunto A?");
+		printf("\t(Y/N)");
+		scanf ("%c",&desicion);
+					
+		if (desicion=='y' || desicion=='Y')//arreglo para introducir elementos a subconjunto A
+		{
+		
+		do 
+		{
+			
+			printf("Escoja valores que pertenescan al conjunto unviersal:");
+			cin>>cosa_1;
+			
+			
+			contador=0;
+				int bandera=1;
+			while(contador<20 && bandera==1)
+			{
+				if(cosa_1==U[contador])
+				{
+					A[contador]=U[contador]; 
+					bandera=0;
+				}
+				contador=contador+1;
+			}
+		printf("Desea introducir otro elementos al subconjunto A?");
+		printf("\t(Y/N)");
+		cin>>desicion;
+		}
+		while (desicion=='y' || desicion=='Y');
+	}	
+	
+
+			//Borrar si no funciona yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+		printf("\nDesea introducir  elementos al subconjunto B?");
+		printf("\t(Y/N)");
+		cin>>desicion;
+			
+		if (desicion=='y' || desicion=='Y')
+		{
+		
+		do 
+		{
+			
+			printf("Escoja valores que pertenescan al conjunto unviersal:");
+			cin>>cosa_1;
+			
+			
+			contador=0;
+			int bandera=1;
+			while(contador<20 && bandera==1)
+			{
+				if(cosa_1==U[contador])
+				{
+					B[contador]=U[contador]; 
+					bandera=0;
+				}
+				contador=contador+1;
+			}
+		printf("Desea introducir otro elementos al subconjunto B?");
+		printf("\t(Y/N)");
+		cin>>desicion;
+		}
+		while (desicion=='y' || desicion=='Y');
+	}	
+			//Borrar si no funciona     yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+		
+		//BORRA ESTO SI FALLA  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		printf("\nDesea introducir  elementos al subconjunto C?");
+		printf("\t(Y/N)");
+		cin>>desicion;
+			
+		if (desicion=='y' || desicion=='Y')
+		{
+		
+		do 
+		{
+			
+			printf("Escoja valores que pertenescan al conjunto unviersal:");
+			cin>>cosa_1;
+			
+			
+			contador=0;
+			int bandera=1;
+			while(contador<20 && bandera==1)
+			{
+				if(cosa_1==U[contador])
+				{
+					C[contador]=U[contador]; 
+					bandera=0;
+				}
+				contador=contador+1;
+			}
+		printf("Desea introducir otro elementos al subconjunto C?");
+		printf("\t(Y/N)");
+		cin>>desicion;
+		}
+		while (desicion=='y' || desicion=='Y');
+	}	
+	
+		//BORRA ESTO SI FALLA     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		
+		//BORRA en si no jala :v
+		printf("\nDesea introducir  elementos al subconjunto D?");
+		printf("\t(Y/N)");
+		cin>>desicion;
+			
+		if (desicion=='y' || desicion=='Y')
+		{
+		
+		do 
+		{
+			
+			printf("Escoja valores que pertenescan al conjunto unviersal:");
+			cin>>cosa_1;
+			
+			
+			contador=0;
+			int bandera=1;
+			while(contador<20 && bandera==1)
+			{
+				if(cosa_1==U[contador])
+				{
+					D[contador]=U[contador]; 
+					bandera=0;
+				}
+				contador=contador+1;
+			}
+		printf("Desea introducir otro elementos al subconjunto D?");
+		printf("\t(Y/N)");
+		cin>>desicion;
+		}
+		while (desicion=='y' || desicion=='Y');
+	}	
+		//Borra si no jala :v
+		
+		printf("A = {%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}\n"
+			,A[0],A[1],A[2],A[3],A[4],A[5],A[6],A[7],A[8],A[9],A[10],A[11],A[12],
+			A[13],A[14],A[15],A[16],A[17],A[18],A[19]);  
+		
+		printf("B = {%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}\n"
+			,B[0],B[1],B[2],B[3],B[4],B[5],B[6],B[7],B[8],B[9],B[10],B[11],B[12],
+			B[13],B[14],B[15],B[16],B[17],B[18],B[19]);  
+			
+			printf("C = {%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}\n"
+			,C[0],C[1],C[2],C[3],C[4],C[5],C[6],C[7],C[8],C[9],C[10],C[11],C[12],
+			C[13],C[14],C[15],C[16],C[17],C[18],C[19]);  
+			
+				
+		printf("D = {%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}\n"
+			,D[0],D[1],D[2],D[3],D[4],D[5],D[6],D[7],D[8],D[9],D[10],D[11],D[12],
+			D[13],D[14],D[15],D[16],D[17],D[18],D[19]);  
+
+
+
+
+
+for(k=0; k<20; k++){
+	
+	if((A[k]==U[k] || B[k]==U[k]) && (C[k]==U[k] || D[k]==U[k])){
+		R1[k] = ' ';
+	}
+	else{
+	 R1[k] = U[k];
+	}
+}
+	
+	for(k=0; k<20; k++){
+	
+	if( ( A[k]==U[k] || B[k]==U[k] ) &&  ( C[k]!=U[k] || D[k]!=U[k] ) ){
+		R2[k] = U[k];
+	}
+	else{
+	 R2[k] = ' ';
+	}
+	
+}
+
+	for(k=0; k<20; k++){
+	
+	if( A[k]==U[k] && ( C[k]==U[k] || B[k]==U[k] || D[k]==U[k] ) ){
+		R3[k] = U[k];
+	}
+	else{
+	 R3[k] = ' ';
+	}
+	
+}
+
+	printf("\nR1={%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}\n",
+	 R1[0], R1[1], R1[2], R1[3], R1[4], R1[5], R1[6], R1[7], R1[8], R1[9], R1[10],
+	  R1[11], R1[12], R1[13], R1[14], R1[15], R1[16], R1[17], R1[18], R1[19]);
+		
+	printf("\nR2={%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}\n",
+	 R2[0], R2[1], R2[2], R2[3], R2[4], R2[5], R2[6], R2[7], R2[8], R2[9], R2[10],
+	  R2[11], R2[12], R2[13], R2[14], R2[15], R2[16], R2[17], R2[18], R2[19]);
+	
+	printf("\nR3={%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c,%c}\n",
+	 R3[0], R3[1], R3[2], R3[3], R3[4], R3[5], R3[6], R3[7], R3[8], R3[9], R3[10],
+	  R3[11], R3[12], R3[13], R3[14], R3[15], R3[16], R3[17], R3[18], R3[19]);
+	
+
+	getch();
+	return 1;
+}
