@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Conversion</string>
+    <string name="conversion">Conversion</string>
+    <string name="v">conversion</string>
+    <string name="de">De</string>
+    <string-array name="currency">
+        <item>Pesos</item>
+        <item>Dolares</item>
+        <item>Euros</item>
+    </string-array>
+</resources>
