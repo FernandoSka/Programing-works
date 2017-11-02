@@ -1,0 +1,581 @@
+<HTML>
+    <HEAD>
+        <TITLE>Encuesta</TITLE>
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+         <script type="text/javascript" src="materialize/js/jquery-3.2.1.js"></script>
+         <script type="text/javascript" src="materialize/js/materialize.js"></script>
+         <style type="text/css">
+         
+         .categoria{
+         	width: 100%;
+         	height: 50px;
+         }
+         .categoria > button{
+         	width: 100%;
+         	height: 100%;
+         	position: relative;
+         	background-color: #f1f1f1;
+         	border-width: 1px;
+         	border-bottom: solid 1px;
+         }
+         .categoria > button:hover{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: #ecf8ff;
+            border-width: 1px;
+            border-bottom: solid 1px;
+
+         }
+
+
+         .categoriacer{
+            width: 100%;
+            height: 30px;
+         }
+         .categoriacer > button{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: #f1f1f1;
+            border-width: 1px;
+            border-bottom: solid 1px;
+         }
+         .categoriacer > button:hover{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: #ffc2c2;
+            border-width: 1px;
+            border-bottom: solid 1px;
+
+         }
+         .preguntas{
+         	background-color: #f9f9f9;
+
+         }
+         .preguntas > p{
+         	margin: auto;
+         }
+
+         .botondes{
+		    width: 30px;
+		    height: 30px;
+		    background-color: #f1f1f1;
+		    border: 1px solid;
+		    border-color: #000;
+         }
+         .botondes:focus{
+		    width: 30px;
+		    height: 30px;
+		    background-color: #f1f1f1;
+		    border: 1px solid;
+		    border-color: #000;
+         }
+         .botondes:hover{
+
+		    width: 30px;
+		    height: 30px;
+		    background-color: #fafafa;
+		    border: 1px solid;
+		    border-color: #000;
+         }
+         .botondes:active{
+
+		    width: 30px;
+		    height: 30px;
+		    background-color: #f0f0f0;
+		    border: 1px solid;
+		    border-color: #000;
+         }
+
+         .botonact{
+		         	
+		    width: 30px;
+		    height: 30px;
+		    background-color: #fff;
+		    border: 1px solid;
+		    border-color: #000;
+         }
+         .botonact:focus{
+		         	
+		    width: 30px;
+		    height: 30px;
+		    background-color: #fff;
+		    border: 1px solid;
+		    border-color: #000;
+         }
+
+         .arr{
+
+            position: absolute;
+            right: 5px;
+         	width: 20px;
+			height: 20px;
+
+         }
+         .arrup{
+
+            position: relative;
+            width: 60px;
+            height: 30px;
+
+         }
+         .rotating{
+
+            position: absolute;
+            right: 5px;
+			width: 20px;
+			height: 20px;
+			-webkit-transform: rotate(270deg);
+		}
+        .lienzo{
+            position: absolute;
+            left: 0px;
+        }
+        .lienzo2{
+
+            position: absolute;
+            z-index: 10;
+            left: 0px;
+         }
+         #preguntas1{
+         	display: none;
+         }
+         #preguntas2{
+            display: none;
+         }
+         #preguntas3{
+            display: none;
+         }
+         #preguntas4{
+            display: none;
+         }
+         #preguntas5{
+            display: none;
+         }
+         #preguntas6{
+            display: none;
+         }
+         #preguntas7{
+            display: none;
+         }
+         #final{
+         	width: 100%;
+         }
+         .icono{
+         	width: 30px;
+         	height: 30px;
+         	display: none;
+         }
+         #radar{
+            background-color: #f9f9f9;
+            position: relative;
+            height: 350px;
+            width: 350px;
+            z-index: 1;
+         }
+         #centroradar{
+            top: 60px;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+            display: none;
+         }
+         #enviar{
+         	    color: #fff;
+    height: 60px;
+    width: 150px;
+    background-color: #ff4c4c;
+    border-color: #000;
+    border-width: 3px;
+    border: solid;
+    border-radius: 10px;
+         }
+         #lienzo{
+            z-index: 9;
+         }
+         #lienzo2{
+            z-index: 8;
+         }
+         #lienzo3{
+            z-index: 7;
+         }
+         #lienzo4{
+            z-index: 6;
+         }
+         #lienzo5{
+            z-index: 5;
+         }
+         #lienzo6{
+            z-index: 4;
+         }
+         #lienzo7{
+            z-index: 3;
+         }
+         #lienzo16{
+            z-index: 2;
+         }
+         #lienzo17{
+            z-index: 1;
+         }
+         #lienzo15{
+            z-index: 11;
+         }
+         
+         
+         BODY{
+         	background-color: #fefefe;
+         }
+         #cerrar{
+            z-index: 39;
+            position: absolute;
+            right: 0px;
+            background-color: transparent;
+            border: 0px solid;
+         }
+         #cerrar:hover{
+            position: absolute;
+            right: 0px;
+            background-color: #f1f1f1f1;
+            border: 1px solid;
+         }
+         #cerrar:active{
+            position: absolute;
+            right: 0px;
+            background-color: #d6d5d5;
+            border: 1px solid;
+         }
+
+
+
+         </style>
+    </HEAD>
+
+    <BODY>
+        <div align="center" id="centroradar">
+            <div id="radar" align="center">
+                <canvas id="lienzo" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo2" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo3" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo4" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo5" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo6" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo7" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo16" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo17" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo8" height="350" width="350" class="lienzo2">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo9" height="350" width="350" class="lienzo2">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo10" height="350" width="350" class="lienzo2">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo11" height="350" width="350" class="lienzo2">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo12" height="350" width="350" class="lienzo2">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo13" height="350" width="350" class="lienzo2">Su navegador no soporta canvas :( </canvas>                
+                <canvas id="lienzo14" height="350" width="350" class="lienzo2">Su navegador no soporta canvas :( </canvas>
+                <canvas id="lienzo15" height="350" width="350" class="lienzo">Su navegador no soporta canvas :( </canvas>
+                <button id="cerrar">X</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l1"></div>
+            <div class="col s12 m12 l10">
+                <p>
+                    Descripcion<br>
+
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae porttitor dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque sit amet ultrices ipsum. Morbi est nisl, tempor ac lectus non, sagittis bibendum ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec in luctus ex. Phasellus mollis justo quis dolor commodo malesuada. Etiam viverra vestibulum ex. Etiam eget ornare mi, ut consequat diam.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col l1"></div>
+        	<div class="col s12 m12 l10"  align="center" >
+        		<div class="categoria">
+        			<button id="act1">Contratacion de tecnologia<img class="arr" src="arrow-down.png" id="arr1"></button>
+        		</div>
+        		<div class="preguntas" id="preguntas1">
+        			<p>pregunta 1</p>
+        			<button class="botondes" id="p1"><img class="icono" src="check.ico" id="icono1"></button>
+        			<hr>
+        			<p>pregunta 2</p>
+        			<button class="botondes" id="p2"> <img class="icono" src="check.ico" id="icono2"></button>
+        			<hr>
+        			<p>pregunta 3</p>
+        			<button class="botondes" id="p3"><img class="icono" src="check.ico" id="icono3"> </button>
+        			<hr>
+        			<p>pregunta 4</p>
+        			<button class="botondes" id="p4"><img class="icono" src="check.ico" id="icono4"> </button>
+        			<hr>
+        			<p>pregunta 5</p>
+        			<button class="botondes" id="p5"><img class="icono" src="check.ico" id="icono5"> </button>
+        			<hr>
+        			<p>pregunta 6</p>
+                    <button class="botondes" id="p6"><img class="icono" src="check.ico" id="icono6"> </button>
+                    <hr>
+                    <p>pregunta 7</p>
+                    <button class="botondes" id="p7"><img class="icono" src="check.ico" id="icono7"> </button>
+                    <hr>
+                    <p>pregunta 8</p>
+                    <button class="botondes" id="p8"><img class="icono" src="check.ico" id="icono8"> </button>
+                    <hr>
+                    <p>pregunta 9</p>
+                    <button class="botondes" id="p9"><img class="icono" src="check.ico" id="icono9"> </button>
+                    <hr>
+
+                <div class="categoriacer">
+                    <button id="comp1"><img class="arrup" src="arrow-up.ico"></button>
+                </div>
+        		</div>
+
+
+
+        		<div class="categoria">
+        			<button id="act2">Organizacion<img class="arr" src="arrow-down.png" id="arr2"></button>
+        		</div>
+                <div class="preguntas" id="preguntas2">
+                    <p>pregunta 1</p>
+                    <button class="botondes" id="p10"><img class="icono" src="check.ico" id="icono10"></button>
+                    <hr>
+                    <p>pregunta 2</p>
+                    <button class="botondes" id="p11"> <img class="icono" src="check.ico" id="icono11"></button>
+                    <hr>
+                    <p>pregunta 3</p>
+                    <button class="botondes" id="p12"><img class="icono" src="check.ico" id="icono12"> </button>
+                    <hr>
+                    <p>pregunta 4</p>
+                    <button class="botondes" id="p13"><img class="icono" src="check.ico" id="icono13"> </button>
+                    <hr>
+                    <p>pregunta 5</p>
+                    <button class="botondes" id="p14"><img class="icono" src="check.ico" id="icono14"> </button>
+                    <hr>
+                    <p>pregunta 6</p>
+                    <button class="botondes" id="p15"><img class="icono" src="check.ico" id="icono15"> </button>
+                    <hr>
+                    <p>pregunta 7</p>
+                    <button class="botondes" id="p16"><img class="icono" src="check.ico" id="icono16"> </button>
+                    <hr>
+                    <p>pregunta 8</p>
+                    <button class="botondes" id="p17"><img class="icono" src="check.ico" id="icono17"> </button>
+                    <hr>
+                    <p>pregunta 9</p>
+                    <button class="botondes" id="p18"><img class="icono" src="check.ico" id="icono18"> </button>
+                    <hr>
+
+                    <div class="categoriacer">
+                    <button id="comp2"><img class="arrup" src="arrow-up.ico"></button>
+                </div>
+                </div>
+
+
+
+        		<div class="categoria">
+        			<button id="act3">Normatividad<img class="arr" src="arrow-down.png" id="arr3"></button>
+        		</div>
+                <div class="preguntas" id="preguntas3">
+                    <p>pregunta 1</p>
+                    <button class="botondes" id="p19"><img class="icono" src="check.ico" id="icono19"></button>
+                    <hr>
+                    <p>pregunta 2</p>
+                    <button class="botondes" id="p20"> <img class="icono" src="check.ico" id="icono20"></button>
+                    <hr>
+                    <p>pregunta 3</p>
+                    <button class="botondes" id="p21"><img class="icono" src="check.ico" id="icono21"> </button>
+                    <hr>
+                    <p>pregunta 4</p>
+                    <button class="botondes" id="p22"><img class="icono" src="check.ico" id="icono22"> </button>
+                    <hr>
+                    <p>pregunta 5</p>
+                    <button class="botondes" id="p23"><img class="icono" src="check.ico" id="icono23"> </button>
+                    <hr>
+                    <p>pregunta 6</p>
+                    <button class="botondes" id="p24"><img class="icono" src="check.ico" id="icono24"> </button>
+                    <hr>
+                    <p>pregunta 7</p>
+                    <button class="botondes" id="p25"><img class="icono" src="check.ico" id="icono25"> </button>
+                    <hr>
+                    <p>pregunta 8</p>
+                    <button class="botondes" id="p26"><img class="icono" src="check.ico" id="icono26"> </button>
+                    <hr>
+                    <p>pregunta 9</p>
+                    <button class="botondes" id="p27"><img class="icono" src="check.ico" id="icono27"> </button>
+                    <hr>
+                    <div class="categoriacer">
+                    <button id="comp3"><img class="arrup" src="arrow-up.ico"></button>
+                </div>
+                </div>
+
+
+
+        		<div class="categoria">
+        			<button id="act4">Pol&iacute;tica empresarial<img class="arr" src="arrow-down.png" id="arr4"></button>
+        		</div>
+                <div class="preguntas" id="preguntas4">
+                    <p>pregunta 1</p>
+                    <button class="botondes" id="p28"><img class="icono" src="check.ico" id="icono28"></button>
+                    <hr>
+                    <p>pregunta 2</p>
+                    <button class="botondes" id="p29"> <img class="icono" src="check.ico" id="icono29"></button>
+                    <hr>
+                    <p>pregunta 3</p>
+                    <button class="botondes" id="p30"><img class="icono" src="check.ico" id="icono30"> </button>
+                    <hr>
+                    <p>pregunta 4</p>
+                    <button class="botondes" id="p31"><img class="icono" src="check.ico" id="icono31"> </button>
+                    <hr>
+                    <p>pregunta 5</p>
+                    <button class="botondes" id="p32"><img class="icono" src="check.ico" id="icono32"> </button>
+                    <hr>
+                    <p>pregunta 6</p>
+                    <button class="botondes" id="p33"><img class="icono" src="check.ico" id="icono33"> </button>
+                    <hr>
+                    <p>pregunta 7</p>
+                    <button class="botondes" id="p34"><img class="icono" src="check.ico" id="icono34"> </button>
+                    <hr>
+                    <p>pregunta 8</p>
+                    <button class="botondes" id="p35"><img class="icono" src="check.ico" id="icono35"> </button>
+                    <hr>
+                    <p>pregunta 9</p>
+                    <button class="botondes" id="p36"><img class="icono" src="check.ico" id="icono36"> </button>
+                    <hr>
+                    <div class="categoriacer">
+                    <button id="comp4"><img class="arrup" src="arrow-up.ico"></button>
+                </div>
+                </div>
+
+
+
+        		<div id="act5" class="categoria">
+        			<button>Infraestructura<img class="arr" src="arrow-down.png" id="arr5"></button>
+        		</div>
+
+                <div class="preguntas" id="preguntas5">
+                    <p>pregunta 1</p>
+                    <button class="botondes" id="p37"><img class="icono" src="check.ico" id="icono37"></button>
+                    <hr>
+                    <p>pregunta 2</p>
+                    <button class="botondes" id="p38"> <img class="icono" src="check.ico" id="icono38"></button>
+                    <hr>
+                    <p>pregunta 3</p>
+                    <button class="botondes" id="p39"><img class="icono" src="check.ico" id="icono39"> </button>
+                    <hr>
+                    <p>pregunta 4</p>
+                    <button class="botondes" id="p40"><img class="icono" src="check.ico" id="icono40"> </button>
+                    <hr>
+                    <p>pregunta 5</p>
+                    <button class="botondes" id="p41"><img class="icono" src="check.ico" id="icono41"> </button>
+                    <hr>
+                    <p>pregunta 6</p>
+                    <button class="botondes" id="p42"><img class="icono" src="check.ico" id="icono42"> </button>
+                    <hr>
+                    <p>pregunta 7</p>
+                    <button class="botondes" id="p43"><img class="icono" src="check.ico" id="icono43"> </button>
+                    <hr>
+                    <p>pregunta 8</p>
+                    <button class="botondes" id="p44"><img class="icono" src="check.ico" id="icono44"> </button>
+                    <hr>
+                    <p>pregunta 9</p>
+                    <button class="botondes" id="p45"><img class="icono" src="check.ico" id="icono45"> </button>
+                    <hr>
+                    <div class="categoriacer">
+                    <button id="comp5"><img class="arrup" src="arrow-up.ico"></button>
+                </div>
+                </div>
+
+
+
+        		<div id="act6" class="categoria">
+        			<button>Desarrollo neurocreativo<img class="arr" src="arrow-down.png" id="arr6"></button>
+        		</div>
+
+                <div class="preguntas" id="preguntas6">
+                    <p>pregunta 1</p>
+                    <button class="botondes" id="p46"><img class="icono" src="check.ico" id="icono46"></button>
+                    <hr>
+                    <p>pregunta 2</p>
+                    <button class="botondes" id="p47"> <img class="icono" src="check.ico" id="icono47"></button>
+                    <hr>
+                    <p>pregunta 3</p>
+                    <button class="botondes" id="p48"><img class="icono" src="check.ico" id="icono48"> </button>
+                    <hr>
+                    <p>pregunta 4</p>
+                    <button class="botondes" id="p49"><img class="icono" src="check.ico" id="icono49"> </button>
+                    <hr>
+                    <p>pregunta 5</p>
+                    <button class="botondes" id="p50"><img class="icono" src="check.ico" id="icono50"> </button>
+                    <hr>
+                    <p>pregunta 6</p>
+                    <button class="botondes" id="p51"><img class="icono" src="check.ico" id="icono51"> </button>
+                    <hr>
+                    <p>pregunta 7</p>
+                    <button class="botondes" id="p52"><img class="icono" src="check.ico" id="icono52"> </button>
+                    <hr>
+                    <p>pregunta 8</p>
+                    <button class="botondes" id="p53"><img class="icono" src="check.ico" id="icono53"> </button>
+                    <hr>
+                    <p>pregunta 9</p>
+                    <button class="botondes" id="p54"><img class="icono" src="check.ico" id="icono54"> </button>
+                    <hr>
+                    <div class="categoriacer">
+                    <button id="comp6"><img class="arrup" src="arrow-up.ico"></button>
+                </div>
+                </div>
+
+
+        		<div id="act7" class="categoria">
+        			<button>Activos intangibles<img class="arr" src="arrow-down.png" id="arr7"></button>
+        		</div>
+
+                <div class="preguntas" id="preguntas7">
+                    <p>pregunta 1</p>
+                    <button class="botondes" id="p55"><img class="icono" src="check.ico" id="icono55"></button>
+                    <hr>
+                    <p>pregunta 2</p>
+                    <button class="botondes" id="p56"> <img class="icono" src="check.ico" id="icono56"></button>
+                    <hr>
+                    <p>pregunta 3</p>
+                    <button class="botondes" id="p57"><img class="icono" src="check.ico" id="icono57"> </button>
+                    <hr>
+                    <p>pregunta 4</p>
+                    <button class="botondes" id="p58"><img class="icono" src="check.ico" id="icono58"> </button>
+                    <hr>
+                    <p>pregunta 5</p>
+                    <button class="botondes" id="p59"><img class="icono" src="check.ico" id="icono59"> </button>
+                    <hr>
+                    <p>pregunta 6</p>
+                    <button class="botondes" id="p60"><img class="icono" src="check.ico" id="icono60"> </button>
+                    <hr>
+                    <p>pregunta 7</p>
+                    <button class="botondes" id="p61"><img class="icono" src="check.ico" id="icono61"> </button>
+                    <hr>
+                    <p>pregunta 8</p>
+                    <button class="botondes" id="p62"><img class="icono" src="check.ico" id="icono62"> </button>
+                    <hr>
+                    <p>pregunta 9</p>
+                    <button class="botondes" id="p63"><img class="icono" src="check.ico" id="icono63"> </button>
+                    <hr>
+                    <div class="categoriacer">
+                    <button id="comp7"><img class="arrup" src="arrow-up.ico"></button>
+                </div>
+                </div>
+        	</div>
+
+        </div>
+
+        	<div id="final" align="center"> <button id="enviar">Generar Estadisticas</button></div>
+
+  <script src="jquery-ui.js"></script>
+        <script type="text/javascript">
+		var hide1 = 0;
+		$( "#arr1" ).addClass( "rotating" );
+		$( "#arr2" ).addClass( "rotating" );
+		$( "#arr3" ).addClass( "rotating" );
+		$( "#arr4" ).addClass( "rotating" );
+		$( "#arr5" ).addClass( "rotating" );
+		$( "#arr6" ).addClass( "rotating" );
+		$( "#arr7" ).addClass( "rotating" );
+
+         </script>
+         <script type="text/javascript" src="canvary.js"></script>
+         <script type="text/javascript" src="buttons.js"></script>
+    </BODY>
+</HTML>
